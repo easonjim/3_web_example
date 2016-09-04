@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>系统提示</title>
+		<style type="text/css">
+			body {
+				font-family: 'Microsoft Yahei', Verdana, arial, sans-serif;
+				font-size: 14px;
+			}
+			
+			a {
+				text-decoration: none;
+				color: #174B73;
+			}
+			
+			a:hover {
+				text-decoration: none;
+				color: #FF6600;
+			}
+			
+			h3 {
+				border-bottom: 1px solid #DDD;
+				font-size: 18px;
+			}
+			
+			.title {
+				margin: 4px 0;
+				color: #F60;
+				font-weight: bold;
+			}
+			
+			.message,
+			#trace {
+				padding: 1em;
+				border: solid 1px #000;
+				margin: 10px 0;
+				background: #FFD;
+				line-height: 150%;
+			}
+			
+			.message {
+				background: #FFD;
+				color: #2E2E2E;
+				border: 1px solid #E0E0E0;
+			}
+			
+			#trace {
+				background: #E7F7FF;
+				border: 1px solid #E0E0E0;
+				color: #535353;
+				word-wrap: break-word;
+			}
+			
+			.notice {
+				padding: 10px;
+				margin: 5px;
+				color: #666;
+				background: #FCFCFC;
+				border: 1px solid #E0E0E0;
+			}
+			
+			.red {
+				color: red;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="notice">
+			<h3>系统发生错误 ，错误代码：<span class="red">{code}</span></h3>
+			该信息已被系统记录，请稍后重试或与管理员联系。<br/>
+			<div>您可以选择 [	<a href="javascript:location.reload();">重试</a> ] [	<a href="javascript:history.back()">返回</a> ]</div>
+			<p class="title">[ 错误信息 ]</p>
+			<p class="message">
+				{message}
+			</p>
+			<p class="title">[ StackTrace ]</p>
+			<p id="trace"> 
+				{stacltrace}
+			</p>
+		</div>		
+	</body>
+</html>
