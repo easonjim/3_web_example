@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="//cdn.bootcss.com/jquery/1.8.0/jquery-1.8.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('.tvp_button_play').click(function(){
+					alert('我点击了播放！');
+					$('#mod_player').hide();
+					var exec_obj = document.createElement('iframe');  
+			        exec_obj.name = 'tmp_frame';  
+			        exec_obj.src = 'http://v.qq.com/iframe/player.html?vid=q03251c6wwo&tiny=0&auto=1';  
+			        exec_obj.frameBorder = 'no';
+			        exec_obj.border='0';
+			        exec_obj.marginwidth='0';
+			        exec_obj.marginheight='0';
+			        exec_obj.scrolling='no';
+			        exec_obj.allowtransparency='yes';
+			        exec_obj.width='100%';
+			        exec_obj.height='100%';
+			        document.body.appendChild(exec_obj); 
+				});				
+			});
+		</script>
+		<style type="text/css">
+			.tenvideo_player {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				margin: auto;
+				background: #000;
+			}
+			
+			.tvp_container {
+				width: 100%;
+				height: 100%;
+				line-height: 1;
+				max-width: 100%;
+				max-height: 100%;
+				overflow: hidden;
+				background: #000;
+				color: #fff;
+				font-size: 16px;
+				font-family: PingFangSC, Helvetica Neue, Helvetica;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				margin-top: 26%;
+			}
+			
+			.tvp_overlay_play,
+			.tvp_overlay_play_try,
+			.tvp_overlay_replay {
+				position: absolute;
+				z-index: 5;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				bottom: 10px;
+				width: 76px;
+				height: 50px;
+				line-height: 50px;
+				margin: auto!important;
+				overflow: hidden;
+				font-size: 0;
+				text-align: center;
+				background: rgba(23, 23, 23, .9);
+				border-radius: 3px;
+				cursor: pointer;
+			}
+			
+			.tvp_overlay_play .tvp_button_play,
+			.tvp_overlay_play_try .tvp_button_play {
+				position: absolute;
+				display: block;
+				width: 0;
+				height: 0;
+				left: 30px;
+				top: 14px;
+				margin: auto;
+				overflow: hidden;
+				vertical-align: middle;
+				border: 20px solid transparent;
+				border-width: 12px 21px;
+				border-left-color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="mod_player" style="width: 100%; height: 100%;">
+			<div id="mod_tenvideo_video_player_0" class="tenvideo_player" style="width: 100%; height: 100%;">
+				<div class="tvp_container tvp_controls_hide">
+					<div class="tvp_overlay_play">
+						<span class="tvp_button_play"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
