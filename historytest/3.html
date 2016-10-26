@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function CurentTime(divID){ 
+			  var curTime=new Array(); 
+			  var now=new Date(); 
+			  var week=['日','一','二','三','四','五','六']; 
+			  var year=now.getFullYear();   //年 
+			  var month=now.getMonth()+1;   //月 
+			  var day=now.getDate();      //日 
+			  var hh=now.getHours();      //时 
+			  var mm=now.getMinutes();     //分 
+			  var sc=now.getSeconds();     //秒 
+			  var wk=now.getDay();       //周 
+			  curTime['year']=year; 
+			  curTime['month']=month<10?'0'+month:month; 
+			  curTime['day']=day<10?'0'+day:day; 
+			  curTime['hh']=hh<10?'0'+hh:hh; 
+			  curTime['mm']=mm<10?'0'+mm:mm; 
+			  curTime['sc']=sc<10?'0'+sc:sc; 
+			  curTime['wk']='星期'+week[wk]; 
+			  curTime=curTime['year']+'年'+curTime['month']+'月'+curTime['day']+'日'+' '+curTime['wk']+' '+curTime['hh']+':'+curTime['mm']+':'+curTime['sc']; 
+			  document.getElementById(divID).innerHTML='今天是：'+curTime; 
+			  //setTimeout('CurentTime(\''+divID+'\')',1000); 
+			}
+			function back(){
+				history.go(-1); 
+				location.reload(); 
+			}
+			function back1(){
+				history.go(-2); 
+				location.reload(); 
+			}
+		</script>
+	</head>
+	<body onload="CurentTime('time')">
+		<p>3</p>
+		<p id="time"></p>
+		<input type="button" onclick="back()" value="back2"/>
+		<input type="button" onclick="back1()" value="back1"/>
+	</body>
+</html>
