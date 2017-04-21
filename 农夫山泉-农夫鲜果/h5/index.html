@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <!-- 
+        maksim.lin@foxmail.com 
+    -->
+    <!-- 可以使用zepto也可以使用jquery -->
+    <script src="./js/lib/zepto.min.js"></script>
+    <!-- 一些基础库 事件类  扩展处理类 log测试工具 -->
+    <script src="./js/lib/MBase.js"></script>
+    <title> 农夫山泉17.5°橙溯源</title>
+    <!-- 插入css -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- layer.js支持使用的css -->
+    <link rel="stylesheet" href="css/need/layer.css">
+    <!-- 
+        手机网站viewport
+        这个网站项目自动适应是对div#screen transform scale来实现自适应
+    -->
+    <script type="text/javascript">
+        var ua = navigator.userAgent;if (/Android (\d+\.\d+)/.test(ua)) {document.write('<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=noo">');} else {document.write('<meta name="viewport" content="width=640,target-densitydpi=device-dpi,maximum-scale=1.0, user-scalable=no">');}
+    </script>
+    <style>
+        html,body {
+            height: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            overflow: hidden;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- 整个网站主容器建议从这里开始 -->
+    <div id="screen">
+        <div id='mainBg'></div>
+        <div id='contentBox'>
+            <div class="scrollBox">
+            </div>
+        </div>
+        <div id="qrPanel">
+            <div class="bg"></div>
+            <div class="panel">
+                <img src="./images/qr.png"/>
+            </div>
+            <div class="tip">请长按识别二维码<br>关注官方微信</div>
+        </div>
+        <div id="menu">
+            <!-- Select Disable -->
+            <div class="menuBtn"><div class="ico ico0"></div></div>
+            <div class="menuBtn"><div class="ico ico1"></div></div>
+            <div class="menuBtn"><div class="ico ico2"></div></div>
+            <div class="menuBtn"><div class="ico ico3"></div></div>
+        </div>
+
+    </div>
+    <!-- 网站具体实现JS -->
+    <script src="./js/lib/sea.min.js"></script>
+    <script type="text/javascript">
+        seajs.config({
+            base: "./",
+            debug: false,
+            alias: {},
+            preload: []
+        });
+        //加载入口模块
+        seajs.use(['./js/SiteModel.js'], function () {
+            // document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+            window.siteModel = seajs.require('SiteModel');
+        });
+    </script>
+</body>
+</html>
